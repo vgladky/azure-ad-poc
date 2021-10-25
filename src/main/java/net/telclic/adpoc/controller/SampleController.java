@@ -7,14 +7,20 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class SampleController {
-    @GetMapping("group1")
+
+    @GetMapping("/")
+    public String home() {
+        return "home";
+    }
+
+    @GetMapping("/group1")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_group1')")
     public String group1() {
         return "Hello Group 1 Users!";
     }
 
-    @GetMapping("group2")
+    @GetMapping("/group2")
     @ResponseBody
     @PreAuthorize("hasRole('ROLE_group2')")
     public String group2() {
